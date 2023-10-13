@@ -1,4 +1,4 @@
-let myString = "heLlo woRlD";
+let myString = "приВеТ, МиР!";
 
 const normalizedString = (string) => {
   return myString.slice(0,1).toUpperCase() + myString.slice(1).toLowerCase();

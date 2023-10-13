@@ -10,7 +10,7 @@ let myAge = 37;
 
 
 const secondsInMyAge = (age) => {
-  return age * secondsInAYear
+  return age * secondsInAYear + " - мой возраст в секундах"
 };
 
 console.log(secondsInMyAge(myAge));
