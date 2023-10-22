@@ -20,11 +20,11 @@ for (let i = 0; i < word.length; i++) {
 let remainingLeters = word.length;
 
 // игровой цикл
-while (remainingLeters > 0) {
+while (remainingLeters > 0 ) {
     //показываем состояние игры
     alert(answerArray.join(" "));
     //запрашиваем вариант ответа
-    let guess = prompt("Угадай букву или нажми 'Отмена' для выхода из игры");
+    let guess = prompt("Угадай букву или нажми 'Отмена' для выхода из игры").toLowerCase();
     if (guess === null) {
     //если ответ не введен выходим из игрового цикла
     break;
