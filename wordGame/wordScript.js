@@ -35,7 +35,7 @@ while (remainingLeters > 0 && remainingAttempts > 0) {
         // если все верно, обновляем состояние игры
         let foundLetter = false;
         for (let i = 0; i < word.length; i++) {
-            if (word[i].toLowerCase() === guess.toLowerCase()) {
+            if (word[i].toLowerCase() === guess.toLowerCase() && answerArray[i] === "_") {
                 answerArray[i] = guess;
                 remainingLeters--;
                 foundLetter = true;
