@@ -85,18 +85,22 @@ const getGuess = () => {
 
 const updateGameState = (guess, word, answerArray) => {
   let foundLetter = false;
+  let count = 0;
     for (let i = 0; i < word.length; i++) {
       if (word[i].toLowerCase() === guess.toLowerCase() && answerArray[i] === "_") {
           answerArray[i] = guess;
           remainingLeters--;
           foundLetter = true;
+          count++;
       }
-  }
+  };
+  
   if (!foundLetter) {
     // если буква не была найдена, уменьшаем количество попыток
     remainingAttempts--;
     alert(`Неправильная буква! Осталось ${remainingAttempts} попыток.`);
   };
+  return count;
 };
 
 const showAnswerAndCongratulatePlayer = (arr) => {
