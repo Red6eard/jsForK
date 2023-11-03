@@ -76,7 +76,7 @@ for (let i = 0; i < word.length; i++) {
 };
 
 const showPlayerProgress = (arr) => {
-  alert(arr.join("."))
+  alert(arr.join(" "))
 };
 
 const getGuess = () => {
@@ -96,12 +96,12 @@ const updateGameState = (guess, word, answerArray) => {
     // если буква не была найдена, уменьшаем количество попыток
     remainingAttempts--;
     alert(`Неправильная буква! Осталось ${remainingAttempts} попыток.`);
-  }
+  };
 };
 
 const showAnswerAndCongratulatePlayer = (arr) => {
-  alert(arr.join(" "));
-    if (remainingLeters === 0) {
+  showPlayerProgress(arr);
+    if (remainingLeters === 0 && remainingAttempts > 0) {
       alert(`Поздравляем, ты отгадал слово: ${word.toUpperCase()}!!!`);
     } else {
       alert("Упс! Ты не справился. Попробуй еще раз!");
@@ -129,4 +129,4 @@ while (remainingLeters > 0 && remainingAttempts > 0) {
     remainingLeters -= correctGuesses
   }
 };
-showAnswerAndCongratulatePlayer(answerArray)
+showAnswerAndCongratulatePlayer(answerArray);
