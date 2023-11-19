@@ -33,6 +33,12 @@ const updateGameState = (guess, word, answerArray) => {
  
 const showAnswerAndCongratulatePlayer = (answerArray, numberAttempt) => {
   showPlayerProgress(answerArray);
+  if (numberAttempt > 0) {
+    alert(`Отлично! Было загадано слово: ${word.toUpperCase()}`);
+  } else {
+    alert(`Плохо! Вас повесили! Было загадано слово: ${word.toUpperCase()}`);
+}
+
 };
 
 let word = pickWord(wordsArray);
@@ -56,6 +62,5 @@ while (remainingLetters > 0 && numberAttempt > 0) {
       alert(`Осталось ${numberAttempt} попыток`);
     }
   }
-  //alert(answerArray.join(" "));
-}
-showAnswerAndCongratulatePlayer(answerArray);
+};
+showAnswerAndCongratulatePlayer(answerArray, numberAttempt);
