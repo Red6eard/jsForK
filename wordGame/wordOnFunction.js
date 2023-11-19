@@ -22,9 +22,9 @@ const getGuess = () => {
  
 const updateGameState = (guess, word, answerArray) => {
   let appearances = 0;
-  for (let j = 0; j < word.length; j++) {
-    if (word[j] === guess && answerArray[j] !== guess) {
-      answerArray[j] = guess.toUpperCase();
+  for (let i = 0; i < word.length; i++) {
+    if (word[i] === guess && answerArray[i] !== guess) {
+      answerArray[i] = guess.toUpperCase();
       appearances++;
     }
   }
