@@ -8,7 +8,7 @@ const words = [
     "лошарик"
 ];
 
-/*
+
 //выбираем случайное слово из массива
 let word = words[Math.floor(Math.random() * words.length)];
 
@@ -59,78 +59,5 @@ while (remainingLeters > 0 && remainingAttempts > 0) {
     } else {
       alert("Упс! Ты не справился. Попробуй еще раз!");
     };
-    */
     
-    // переписываем на функциях:
     
-const pickWord = (arr) => {
-  return arr[Math.floor(Math.random() * arr.length)];
-};
-
-const setupAnswerArray = (word) => {
-  let answerArr = [];
-for (let i = 0; i < word.length; i++) {
-    answerArr[i] = "_";
-  };
-  return answerArr
-};
-
-const showPlayerProgress = (arr) => {
-  alert(arr.join(" "))
-};
-
-const getGuess = () => {
-  return prompt("Угадай букву или нажми 'Отмена' для выхода из игры");
-};
-
-const updateGameState = (guess, word, answerArray) => {
-  let foundLetter = false;
-  let count = 0;
-    for (let i = 0; i < word.length; i++) {
-      if (word[i].toLowerCase() === guess.toLowerCase() && answerArray[i] === "_") {
-          answerArray[i] = guess;
-          remainingLeters--;
-          foundLetter = true;
-          count++;
-      }
-  };
-  
-  if (!foundLetter) {
-    // если буква не была найдена, уменьшаем количество попыток
-    remainingAttempts--;
-    alert(`Неправильная буква! Осталось ${remainingAttempts} попыток.`);
-  };
-  return count;
-};
-
-const showAnswerAndCongratulatePlayer = (arr) => {
-  showPlayerProgress(arr);
-    if (remainingLeters === 0 && remainingAttempts > 0) {
-      alert(`Поздравляем, ты отгадал слово: ${word.toUpperCase()}!!!`);
-    } else {
-      alert("Упс! Ты не справился. Попробуй еще раз!");
-    }
-};
-
-
-
-let word = pickWord(words);
-let answerArray = setupAnswerArray(word);
-let remainingLeters = word.length;
-let remainingAttempts = word.length * 3;
-
-
-while (remainingLeters > 0 && remainingAttempts > 0) {
-  showPlayerProgress(answerArray);
-  let guess = getGuess();
-  if (guess === null){
-    break
-  } else if (guess.length !== 1) {
-        //если введеный ответ НЕ равен одному символу
-        alert("Введите только ОДНУ букву!");
-  } else {
-    correctGuesses = updateGameState(guess,word, answerArray);
-    remainingLeters -= correctGuesses
-  }
-};
-showAnswerAndCongratulatePlayer(answerArray);
