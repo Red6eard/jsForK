@@ -6,7 +6,7 @@ for(let i=0; i<friends.length; i++){
   $('body').append(`<p>${friends[i]}</p>`)
 };
 $('p').append('<span> the best!!!</span>')
-$('span').hide().fadeIn(5000);
+$('span').hide().delay(3000).fadeIn(5000);
 
 // task2
 let num = 1000;
